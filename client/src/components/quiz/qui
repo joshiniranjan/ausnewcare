@@ -1,0 +1,79 @@
+import { useState } from "react"
+import { useAuth } from "../../store/auth"
+import './quiz.css'
+import fail from '../../images/failed.png'
+
+
+const Quiz = () => {
+    const {quizes} = useAuth();
+    const [showFinalResults, setFinalResults] = useState(false)
+    const [score, setScore] = useState(0)
+    const [currentQuestion, setCurrentQuestion] = useState(0)
+    // console.log(quizes[0].question);
+    
+
+
+    const optionClicked = (isCorrect,option) => {
+        if(isCorrect === option) {
+            setScore(score + 1)
+        }
+        if(currentQuestion + 1 < quizes.length) {
+            setCurrentQuestion(currentQuestion + 1)
+        } else {
+            setFinalResults(true)
+        }
+    }
+
+    const restartQuiz = () => {
+        setScore(0);
+        setCurrentQuestion(0)
+        setFinalResults(false)
+    }
+
+    // Ensure that quizes data is available
+    if (!quizes || quizes.length === 0) {
+        return <div>Loading...</div>; // or any other loading indicator
+    }
+
+
+    return (
+        <div className="quizWrap flex flex-wrap place-items-center place-content-center  py-20">
+            <div>
+              
+                {
+                    showFinalResults ? 
+                        <div className={` max-w-md text-center p-5 mx-auto finalResults ${score === quizes.length ? 'pass' : 'failed'}`}>
+                            <h2 className="text-3xl font-bold mb-2">Final results</h2>
+                            <img src={fail} width={150} className="mx-auto mb-3" alt="" />
+                            <strong className="mb-6 block bg-red-600 px-2 py-3 text-white  -skew-y-3">Sorry, need to work hard better luck next time.</strong>
+                            <h3 className="mb-3">{score} out of {quizes.length} correct </h3>
+                            <h3 className="text-2xl font-bold">({(score/quizes.length)*100}%)</h3>
+                            <button className="but12" onClick={restartQuiz}><svg><rect></rect></svg>Restart Quiz</button>
+                        </div>
+                    :<>
+                        <div className="rounded-xl questionCard bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white max-w-xl mx-auto p-7">
+                        <h1 className="text-3xl font-bold mb-2 text-center">Knowledge Test</h1>
+                        
+                        <h2 className="text-center text-xl mb-5">{quizes[currentQuestion].question}</h2>
+                        <ul>
+                            {
+                                quizes[currentQuestion].options.map((option,index) => {
+                                    return (
+                                        <li onClick={() => optionClicked(quizes[currentQuestion].answer, option)} key={index} className="text-center cursor-pointer alternate bg-purple-900 font-bold rounded-full border-solid px-5 py-4 mb-3 shadow-md shadow-slate-400"><span>{option}</span></li>
+                                    )
+                                })
+                            }
+                        </ul>
+                            <div className="infoWrap flex flex-wrap place-items-center place-content-between pt-5">
+                                <strong className="">Current Score: {score}</strong>
+                                <strong className="">Question {currentQuestion + 1} out of {quizes.length}</strong>
+                            </div>
+                        </div>
+                    </>
+                }
+            </div>
+        </div>
+    )
+}
+
+export default Quiz

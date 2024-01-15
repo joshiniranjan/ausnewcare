@@ -1,0 +1,55 @@
+.testimonialBlock button {
+  display:none !important;
+}
+.testimonialBlock:after {
+  background-color: #29293a;
+  transform:skewY(-4deg);
+  bottom: -100px;
+}
+
+.but12 {
+  background-color: unset;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 50px;
+  font-size: 15px;
+  width: 250px;
+  font-weight: bold;
+  border: unset;
+  margin:0 auto;
+  display: block;
+  border-radius: unset;
+  cursor: pointer;
+  transform: translateY(11px);
+}
+.but12:focus {
+  outline: none;
+}
+
+/* 12. (Button Twelve) */
+.but12 {
+  background-color:#3a0067;
+  transition: 0.5s;
+}
+ .but12 svg,
+ .but12 svg rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 1s;
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+}
+ .but12 svg rect {
+  stroke: rgb(42 ,255, 0);
+  stroke-width: 10px;
+  stroke-dasharray: 250 50; /* Button Width  & Button Height*/
+  stroke-dashoffset: 300;  /* The Sum Of Them*/
+}
+ .but12:hover svg rect {
+  stroke: rgb(255, 9 ,0);
+  stroke-dasharray: 50 250; /*Button Height & Button Width*/
+  stroke-dashoffset: -250; /* Negative Width Length*/
+}
