@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
+const path = require("path")
 const app = express();
 const authRoute = require('./router/auth-router')
 const connectDB = require('./utils/db');
@@ -28,6 +29,11 @@ app.use('/api/data', quizRoute)
 app.use('/api/data', examRoute)
 
 app.use(errorMiddleware);
+
+app.get("/", (req,res) => {
+    app.use(express.static(path.resolve(__dirname, "client", "build")))
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+})
 
 const PORT = 5000;
 
