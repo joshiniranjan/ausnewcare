@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ausnew/static/css/main.1ea95f46.css",
-    "main.js": "/ausnew/static/js/main.7d211409.js",
+    "main.js": "/ausnew/static/js/main.1033e07a.js",
     "static/media/slider3.png": "/ausnew/static/media/slider3.072ff94381bcd492b263.png",
     "static/media/slider1.jpg": "/ausnew/static/media/slider1.0fabc915231a8df4f45a.jpg",
     "static/media/ndislogo.png": "/ausnew/static/media/ndislogo.6b3d0091c513e498420e.png",
@@ -16,10 +16,10 @@
     "static/media/slick.woff": "/ausnew/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/ausnew/index.html",
     "main.1ea95f46.css.map": "/ausnew/static/css/main.1ea95f46.css.map",
-    "main.7d211409.js.map": "/ausnew/static/js/main.7d211409.js.map"
+    "main.1033e07a.js.map": "/ausnew/static/js/main.1033e07a.js.map"
   },
   "entrypoints": [
     "static/css/main.1ea95f46.css",
-    "static/js/main.7d211409.js"
+    "static/js/main.1033e07a.js"
   ]
 }
