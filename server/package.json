@@ -1,6 +1,5 @@
 {
-  "homepage": "https://joshiniranjan.io/ausnew/",
-  "name": "mern",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
