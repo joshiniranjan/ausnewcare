@@ -12,13 +12,13 @@ const enrollmentRoute = require('./router/enrollment-router')
 const quizRoute = require('./router/quiz-router')
 const examRoute = require('./router/exam-router')
 
-//handling cors policy
-const corsOptions = {
-    origin: "https://ausnewcare.vercel.app/",
-    methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
-    credentials: true
-}
-app.use(cors(corsOptions))
+// //handling cors policy
+// const corsOptions = {
+//     origin: "https://ausnewcare.vercel.app/",
+//     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+//     credentials: true
+// }
+// app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use("/api/auth", authRoute)
