@@ -14,7 +14,7 @@ const examRoute = require('./router/exam-router')
 
 //handling cors policy
 const corsOptions = {
-    origin: `${window.location.origin}`,
+    origin: "http://localhost:3000",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true
 }
